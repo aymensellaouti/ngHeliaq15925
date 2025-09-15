@@ -1,0 +1,18 @@
+<div class="alert alert-primary">
+  <app-hello [nom]="'test'" />
+</div>
+
+<ol class="list-group">
+  @for (name of names(); track name) {
+    <li class="list-group list-group-item">{{name}}
+    @if (name.length >= 10) {
+      <i class="bi bi-emoji-smile"></i>
+    }
+    </li>
+  }
+  @empty {
+    <li>Liste vide</li>
+  }
+</ol>
+
+<button class="btn btn-danger" (click)="reset()">reset</button>

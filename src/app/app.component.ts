@@ -7,10 +7,11 @@ import { RotatingCardComponent } from "./components/rotating-card/rotating-card.
 import { CounterComponent } from "./signals/counter/counter.component";
 import { SomComponent } from "./signals/som/som.component";
 import { TtcComponent } from "./signals/ttc/ttc.component";
+import { NamesComponent } from './signals/names/names.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FirstComponent, SecondComponent, ColorComponent, TwoComponent, RotatingCardComponent, CounterComponent, SomComponent, TtcComponent],
+  imports: [NamesComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
