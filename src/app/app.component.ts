@@ -6,10 +6,11 @@ import { TwoComponent } from "./components/two/two.component";
 import { RotatingCardComponent } from "./components/rotating-card/rotating-card.component";
 import { CounterComponent } from "./signals/counter/counter.component";
 import { SomComponent } from "./signals/som/som.component";
+import { TtcComponent } from "./signals/ttc/ttc.component";
 
 @Component({
   selector: 'app-root',
-  imports: [FirstComponent, SecondComponent, ColorComponent, TwoComponent, RotatingCardComponent, CounterComponent, SomComponent],
+  imports: [FirstComponent, SecondComponent, ColorComponent, TwoComponent, RotatingCardComponent, CounterComponent, SomComponent, TtcComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
