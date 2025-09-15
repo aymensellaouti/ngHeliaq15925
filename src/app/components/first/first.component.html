@@ -1,2 +1,11 @@
-<p>first works!</p>
+<p [hidden]="isHidden">Bonjour {{ name }}</p>
+<p>{{message}}</p>
+<button
+  (click)="showHide()"
+  class="btn btn-danger">
+  show / hide
+</button>
+<input
+  #myInput
+  (change)="changeMessage(myInput.value)" type="text" class="form-control">
 <app-second/>

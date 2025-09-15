@@ -9,5 +9,13 @@ import { SecondComponent } from "./components/second/second.component";
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+
+  // Que peut on avoir dans une classe
+
+  //Attributs => State (état)
   title = 'ngHeliaq15925';
+  src = 'as.jpg';
+  //méthodes => comportement
+
+  test() {}
 }
