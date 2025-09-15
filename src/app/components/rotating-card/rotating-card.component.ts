@@ -13,4 +13,10 @@ export class RotatingCardComponent {
   firstname = 'aymen';
   job = 'Formateur';
   path = 'rotating_card_profile3.png';
+
+  showFullName():string {
+    console.log("Return fullname");
+
+    return this.firstname + ' ' + this.name;
+  }
 }

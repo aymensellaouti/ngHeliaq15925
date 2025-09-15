@@ -9,4 +9,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class TwoComponent {
   two = 'init value';
+
+  showTwo() {
+    console.log("Sending Two");
+
+    return this.two;
+  }
 }
