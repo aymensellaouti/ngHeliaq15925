@@ -16,7 +16,7 @@ import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 
 @Component({
   selector: 'app-root',
-  imports: [NamesComponent, ShowIsEvenComponent, PereComponent, CvComponent, StyleComponent, MiniWordComponent],
+  imports: [NamesComponent, ShowIsEvenComponent, PereComponent, CvComponent, StyleComponent, MiniWordComponent, ColorComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })

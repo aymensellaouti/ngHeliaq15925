@@ -1,7 +1,8 @@
 @if(true){
-  <div [style.backgroundColor]="color">color works!</div>
+  <div appRainbow [style.backgroundColor]="color">color works!</div>
 }
 <input
+  appRainbow
   #colorInput
   (change)="changeColor(colorInput)"  type="text" class="form-control">
 <button (click)="reset()" class="btn btn-danger">reset</button>

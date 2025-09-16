@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { RainbowDirective } from "../../directives/rainbow.directive";
 
 @Component({
   selector: 'app-color',
-  imports: [],
+  imports: [RainbowDirective],
   templateUrl: './color.component.html',
   styleUrl: './color.component.css',
 })
