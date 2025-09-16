@@ -2,10 +2,11 @@ import { Component, signal, Signal } from '@angular/core';
 import { CvListComponent } from "../cv-list/cv-list.component";
 import { CvCardComponent } from "../cv-card/cv-card.component";
 import { Cv } from '../model/cv.model';
+import { HighlightDirective } from '../../directives/highlight.directive';
 
 @Component({
   selector: 'app-cv',
-  imports: [CvListComponent, CvCardComponent],
+  imports: [CvListComponent, CvCardComponent, HighlightDirective],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
 })
