@@ -3,7 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 const BTCUSD = 115377;
 
 @Pipe({
-  name: 'btcToUsd'
+  name: 'btcToUsd',
+  pure: true
 })
 export class BtcToUsdPipe implements PipeTransform {
 
@@ -14,6 +15,8 @@ export class BtcToUsdPipe implements PipeTransform {
    * @returns
    */
   transform(amount: number, isBtcToUsd = true): number {
+    console.log(BTCUSD);
+
     return isBtcToUsd ? BTCUSD * amount : amount / BTCUSD;
   }
 

@@ -15,10 +15,11 @@ import { StyleComponent } from "./directives/style/style.component";
 import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [ColorComponent, DatePipe, UpperCasePipe, BtcToUsdPipe, CurrencyPipe, CvComponent],
+  imports: [FormsModule, ColorComponent, DatePipe, UpperCasePipe, BtcToUsdPipe, CurrencyPipe, CvComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -31,5 +32,8 @@ export class AppComponent {
   src = 'as.jpg';
   //méthodes => comportement
 
-  test() {}
+  // test(x: number) {
+  //  console.log('Calucl BTS USD From Function');
+  //   return x * 115000;
+  // }
 }
