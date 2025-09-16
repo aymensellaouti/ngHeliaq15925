@@ -29,6 +29,15 @@ export class CvComponent {
       '12345678',
       'rotating_card_profile.png'
     ),
+    new Cv(
+      3,
+      'laurant',
+      'dubos',
+      20,
+      'Dév',
+      '12345678',
+      'rotating_card_profile2.png'
+    ),
   ]);
   selectedCv = signal<Cv | null>(null);
 }
