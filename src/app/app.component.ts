@@ -10,10 +10,11 @@ import { TtcComponent } from "./signals/ttc/ttc.component";
 import { NamesComponent } from './signals/names/names.component';
 import { ShowIsEvenComponent } from "./interactionEntreComposant/show-is-even/show-is-even.component";
 import { PereComponent } from "./interactionEntreComposant/pere/pere.component";
+import { CvComponent } from "./cv/cv/cv.component";
 
 @Component({
   selector: 'app-root',
-  imports: [NamesComponent, ShowIsEvenComponent, PereComponent],
+  imports: [NamesComponent, ShowIsEvenComponent, PereComponent, CvComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
