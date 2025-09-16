@@ -1,8 +1,9 @@
-import { Component, signal, Signal } from '@angular/core';
+import { Component, inject, signal, Signal } from '@angular/core';
 import { CvListComponent } from "../cv-list/cv-list.component";
 import { CvCardComponent } from "../cv-card/cv-card.component";
 import { Cv } from '../model/cv.model';
 import { HighlightDirective } from '../../directives/highlight.directive';
+import { TodoService } from '../../todo/service/todo.service';
 
 @Component({
   selector: 'app-cv',
@@ -11,6 +12,7 @@ import { HighlightDirective } from '../../directives/highlight.directive';
   styleUrl: './cv.component.css',
 })
 export class CvComponent {
+  todoService = inject(TodoService);
   cvs = signal<Cv[]>([
     new Cv(
       1,

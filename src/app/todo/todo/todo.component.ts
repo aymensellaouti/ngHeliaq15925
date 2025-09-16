@@ -8,6 +8,7 @@ import { FormsModule } from "@angular/forms";
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   imports: [FormsModule],
+  providers: [TodoService]
 })
 export class TodoComponent {
   protected todoService = inject(TodoService);

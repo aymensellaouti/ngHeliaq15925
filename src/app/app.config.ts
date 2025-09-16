@@ -6,6 +6,9 @@ import { routes } from './app.routes';
 import { registerLocaleData } from '@angular/common';
 import { FirstService } from './services/first.service';
 
+import { provideToastr } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     {
@@ -14,5 +17,7 @@ export const appConfig: ApplicationConfig = {
     },
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideAnimations(), // required animations providers
+    provideToastr(), // Toastr providers
   ],
 };

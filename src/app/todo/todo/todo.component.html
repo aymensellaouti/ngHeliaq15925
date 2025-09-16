@@ -27,6 +27,7 @@
     <input [(ngModel)]="todo().name" type="text" class="form-control" /> content:
     <input [(ngModel)]="todo().content" type="text" class="form-control" />
     <button
+      [disabled]="!todo().name.trim() || !todo().content.trim()"
       (click)="addTodo()"
       class="btn btn-primary m-2"
     >

@@ -18,20 +18,32 @@ import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
 import { FormsModule } from '@angular/forms';
 import { FirstService } from './services/first.service';
 import { TodoComponent } from "./todo/todo/todo.component";
+import { WeekTodoComponent } from "./todo/week-todo/week-todo.component";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, ColorComponent, DatePipe, UpperCasePipe, BtcToUsdPipe, CurrencyPipe, CvComponent, TodoComponent],
+  imports: [
+    FormsModule,
+    ColorComponent,
+    DatePipe,
+    UpperCasePipe,
+    BtcToUsdPipe,
+    CurrencyPipe,
+    CvComponent,
+    TodoComponent,
+    WeekTodoComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   date = new Date();
   firstService = inject(FirstService);
-  constructor(
-    // private firstService: FirstService
-  ) {
-    this.firstService.sayHello();
+  toastrService = inject(ToastrService);
+  constructor() // private firstService: FirstService
+  {
+    this.toastrService.info('Bienvenu chez Heliaq');
   }
   // Que peut on avoir dans une classe
 
