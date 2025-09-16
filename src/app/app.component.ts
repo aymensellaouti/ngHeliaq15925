@@ -8,10 +8,12 @@ import { CounterComponent } from "./signals/counter/counter.component";
 import { SomComponent } from "./signals/som/som.component";
 import { TtcComponent } from "./signals/ttc/ttc.component";
 import { NamesComponent } from './signals/names/names.component';
+import { ShowIsEvenComponent } from "./interactionEntreComposant/show-is-even/show-is-even.component";
+import { PereComponent } from "./interactionEntreComposant/pere/pere.component";
 
 @Component({
   selector: 'app-root',
-  imports: [NamesComponent],
+  imports: [NamesComponent, ShowIsEvenComponent, PereComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
