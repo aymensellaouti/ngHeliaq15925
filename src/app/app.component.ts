@@ -13,15 +13,17 @@ import { PereComponent } from "./interactionEntreComposant/pere/pere.component";
 import { CvComponent } from "./cv/cv/cv.component";
 import { StyleComponent } from "./directives/style/style.component";
 import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
+import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
+import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
 
 @Component({
   selector: 'app-root',
-  imports: [NamesComponent, ShowIsEvenComponent, PereComponent, CvComponent, StyleComponent, MiniWordComponent, ColorComponent],
+  imports: [ColorComponent, DatePipe, UpperCasePipe, BtcToUsdPipe, CurrencyPipe, CvComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
+  date = new Date();
   // Que peut on avoir dans une classe
 
   //Attributs => State (état)

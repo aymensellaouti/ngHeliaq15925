@@ -1,8 +1,17 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, LOCALE_ID } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr);
 import { routes } from './app.routes';
+import { registerLocaleData } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'fr-FR',
+    },
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+  ],
 };

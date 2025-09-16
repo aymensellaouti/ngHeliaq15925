@@ -19,7 +19,7 @@ export class CvComponent {
       43,
       'enseignant',
       '12345678',
-      'rotating_card_profile3.png'
+      ''
     ),
     new Cv(
       2,
@@ -28,7 +28,7 @@ export class CvComponent {
       20,
       'Dév',
       '12345678',
-      'rotating_card_profile.png'
+      '            '
     ),
     new Cv(
       3,
