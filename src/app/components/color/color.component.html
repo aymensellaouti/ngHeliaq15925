@@ -1,4 +1,6 @@
-<div [style.backgroundColor]="color">color works!</div>
+@if(true){
+  <div [style.backgroundColor]="color">color works!</div>
+}
 <input
   #colorInput
   (change)="changeColor(colorInput)"  type="text" class="form-control">

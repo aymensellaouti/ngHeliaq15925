@@ -11,10 +11,12 @@ import { NamesComponent } from './signals/names/names.component';
 import { ShowIsEvenComponent } from "./interactionEntreComposant/show-is-even/show-is-even.component";
 import { PereComponent } from "./interactionEntreComposant/pere/pere.component";
 import { CvComponent } from "./cv/cv/cv.component";
+import { StyleComponent } from "./directives/style/style.component";
+import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 
 @Component({
   selector: 'app-root',
-  imports: [NamesComponent, ShowIsEvenComponent, PereComponent, CvComponent],
+  imports: [NamesComponent, ShowIsEvenComponent, PereComponent, CvComponent, StyleComponent, MiniWordComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
