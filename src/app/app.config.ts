@@ -4,6 +4,7 @@ import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr);
 import { routes } from './app.routes';
 import { registerLocaleData } from '@angular/common';
+import { FirstService } from './services/first.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [

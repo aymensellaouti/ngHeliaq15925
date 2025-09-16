@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FirstComponent } from "./components/first/first.component";
 import { SecondComponent } from "./components/second/second.component";
 import { ColorComponent } from "./components/color/color.component";
@@ -16,15 +16,23 @@ import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
 import { FormsModule } from '@angular/forms';
+import { FirstService } from './services/first.service';
+import { TodoComponent } from "./todo/todo/todo.component";
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, ColorComponent, DatePipe, UpperCasePipe, BtcToUsdPipe, CurrencyPipe, CvComponent],
+  imports: [FormsModule, ColorComponent, DatePipe, UpperCasePipe, BtcToUsdPipe, CurrencyPipe, CvComponent, TodoComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   date = new Date();
+  firstService = inject(FirstService);
+  constructor(
+    // private firstService: FirstService
+  ) {
+    this.firstService.sayHello();
+  }
   // Que peut on avoir dans une classe
 
   //Attributs => State (état)
