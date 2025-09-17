@@ -8,7 +8,7 @@ import { FormsModule } from "@angular/forms";
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   imports: [FormsModule],
-  providers: [TodoService]
+  providers: [TodoService],
 })
 export class TodoComponent {
   protected todoService = inject(TodoService);
@@ -27,5 +27,13 @@ export class TodoComponent {
 
   deleteTodo(todo: Todo) {
     this.todoService.deleteTodo(todo);
+  }
+
+  getFromApis() {
+    this.todoService.getTodosFromApi().subscribe({
+      next: (todos) => {
+        console.log(todos);
+      }
+    })
   }
 }
