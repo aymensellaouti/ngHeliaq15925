@@ -1,7 +1,7 @@
 import {  computed, inject, Injectable, Signal, signal } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { APP_API } from '../../config/app-api.config';
 import { AuthService } from '../../auth/services/auth.service';
 import { APP_CONST } from '../../config/const.config';
@@ -48,6 +48,7 @@ export class CvService {
 
   deleteCvById(id: number): Observable<Cv> {
     const params = new HttpParams().set(APP_CONST.accessToken, this.authService.getToken());
+    const headers = new HttpHeaders().set(APP_CONST.authentificationHeader, this.authService.getToken());
     return this.http.delete<Cv>(APP_API.cv + id, {params});
   }
   /**
