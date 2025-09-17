@@ -32,8 +32,10 @@ export class DetailsCvComponent {
   delete() {
     const cv = this.cv();
     if (cv) {
-      this.cvService.deleteCv(cv);
-      this.router.navigate([APP_ROUTES.cv]);
+      this.cvService.deleteCvById(cv.id).subscribe({
+        next: () => this.router.navigate([APP_ROUTES.cv]),
+        error: (e) => console.log(e)
+      })
     }
   }
 }
