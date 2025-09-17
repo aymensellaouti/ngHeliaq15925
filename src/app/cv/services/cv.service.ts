@@ -1,8 +1,10 @@
 import {  computed, inject, Injectable, Signal, signal } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { APP_API } from '../../config/app-api.config';
+import { AuthService } from '../../auth/services/auth.service';
+import { APP_CONST } from '../../config/const.config';
 
 
 @Injectable({
@@ -27,7 +29,7 @@ export class CvService {
   //selectedCv = computed(() => this.#selectedCv());
   selectedCv = this.#selectedCv.asReadonly();
   http = inject(HttpClient);
-
+  authService = inject(AuthService);
   /**
    * Retourne la liste des cvs
    * @returns Cv[]
@@ -45,7 +47,8 @@ export class CvService {
   }
 
   deleteCvById(id: number): Observable<Cv> {
-    return this.http.delete<Cv>(APP_API.cv + id);
+    const params = new HttpParams().set(APP_CONST.accessToken, this.authService.getToken());
+    return this.http.delete<Cv>(APP_API.cv + id, {params});
   }
   /**
    * Séelectionne un cv par son id
