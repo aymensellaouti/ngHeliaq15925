@@ -8,7 +8,8 @@ import { FirstService } from './services/first.service';
 
 import { provideToastr } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { authInterceptor } from './auth/interceptors/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +21,12 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimations(), // required animations providers
     provideToastr(), // Toastr providers
-    provideHttpClient()
+    provideHttpClient(withInterceptors([authInterceptor])),
   ],
 };
+
+// export const authInterceptorProvider = {
+//   provide: HTTP_INTERCEPTORS,
+//   useClass: NomDeNotreClass,
+//   multi: true
+// }

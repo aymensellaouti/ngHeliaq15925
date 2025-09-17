@@ -47,9 +47,7 @@ export class CvService {
   }
 
   deleteCvById(id: number): Observable<Cv> {
-    const params = new HttpParams().set(APP_CONST.accessToken, this.authService.getToken());
-    const headers = new HttpHeaders().set(APP_CONST.authentificationHeader, this.authService.getToken());
-    return this.http.delete<Cv>(APP_API.cv + id, {params});
+       return this.http.delete<Cv>(APP_API.cv + id);
   }
   /**
    * Séelectionne un cv par son id
