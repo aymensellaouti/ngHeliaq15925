@@ -4,6 +4,7 @@ import { CvCardComponent } from "../cv-card/cv-card.component";
 import { Cv } from '../model/cv.model';
 import { CvService } from '../services/cv.service';
 import { EmbaucheComponent } from "../embauche/embauche.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cv',
@@ -15,4 +16,9 @@ export class CvComponent {
   cvService = inject(CvService);
   cvs = this.cvService.getCvs();
   selectedCv = this.cvService.selectedCv;
+  router = inject(Router);
+
+  handleTodos() {
+    this.router.navigate(['todo'])
+  }
 }
