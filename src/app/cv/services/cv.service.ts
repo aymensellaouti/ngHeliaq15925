@@ -32,24 +32,25 @@ export class CvService {
   }
 
   /**
-   *
-   * Cherche un cv avec son id dans lai liste fictive de cvs
-   *
+   * Séelectionne un cv par son id
    * @param id
-   * @returns Cv | null
+   * @returns
    */
   findCvById(id: number): Cv | null {
-    return null;
+    return this.cvs().find((cv) => cv.id == id) ?? null;
   }
 
   /**
-   *
-   * Supprime un cv s'il le trouve
-   *
-   * @param cv : Cv
-   * @returns boolean
+   * Supprime un cv
+   * @param cv
+   * @returns
    */
   deleteCv(cv: Cv): boolean {
+    const index = this.cvs().indexOf(cv);
+    if (index > -1) {
+      this.cvs.update((cvs) => cvs.filter((element) => element !== cv));
+      return true;
+    }
     return false;
   }
 
