@@ -4,25 +4,27 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "../../config/app-routes.config";
 import { DefaultImagePipe } from "../pipes/default-image.pipe";
+import { AuthService } from "../../auth/services/auth.service";
 
 @Component({
   selector: 'app-details-cv',
   templateUrl: './details-cv.component.html',
   styleUrls: ['./details-cv.component.css'],
-  imports: [DefaultImagePipe]
+  imports: [DefaultImagePipe],
 })
 export class DetailsCvComponent {
   cv = signal<Cv | null>(null);
   acr = inject(ActivatedRoute);
   cvService = inject(CvService);
   router = inject(Router);
+  authService = inject(AuthService);
   constructor() {
     const id = this.acr.snapshot.params['id'];
     this.cvService.getCvById(id).subscribe({
       next: (cv) => this.cv.set(cv),
       error: (e) => {
         this.router.navigate([APP_ROUTES.cv]);
-      }
+      },
     });
     // if (!this.cv()) {
 
@@ -34,8 +36,8 @@ export class DetailsCvComponent {
     if (cv) {
       this.cvService.deleteCvById(cv.id).subscribe({
         next: () => this.router.navigate([APP_ROUTES.cv]),
-        error: (e) => console.log(e)
-      })
+        error: (e) => console.log(e),
+      });
     }
   }
 }

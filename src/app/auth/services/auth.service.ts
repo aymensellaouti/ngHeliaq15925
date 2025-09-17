@@ -36,4 +36,8 @@ export class AuthService {
   saveToken(tokenValue: string): void {
     localStorage.setItem(APP_CONST.tokenKey, tokenValue);
   }
+
+  logout() {
+    this.clearToken();
+  }
 }
