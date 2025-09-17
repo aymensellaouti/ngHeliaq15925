@@ -3,8 +3,10 @@
       src="assets/images/{{cv().path | defaultImage}}"
       alt="{{cv().name}}"
       class="rounded-circle"
-      width="50"
-      height="50"
+     [style]="{
+      width: size() + 'px',
+      heigth: size() + 'px'
+     }"
     >
     {{cv().firstname}} {{cv().name}}
   </div>

@@ -1,12 +1,12 @@
 <div class="row" >
   <div class="col">
-    <app-cv-list (forwardCv)="selectedCv.set($event)" [cvs]="cvs()" />
+    <app-cv-list [cvs]="cvs()" />
   </div>
   <div class="col">
     <app-cv-card [cv]="selectedCv()" />
   </div>
 </div>
-
+<app-embauche/>
 <!-- <p appHighlight>test</p>
 <p [in]="'lightblue'" [out]="'gold'" appHighlight>test</p>
 <p [in]="'green'" [out]="'pink'" appHighlight>test</p> -->

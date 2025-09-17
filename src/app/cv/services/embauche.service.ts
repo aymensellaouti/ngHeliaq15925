@@ -1,23 +1,37 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Signal, signal } from '@angular/core';
 import { Cv } from '../model/cv.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmbaucheService {
-  #embauchees: Cv[] = [];
+  // Todo : Update Code with
+  readonly #embauchees = signal<Cv[]>([]);
 
-  getEmbauchees(): Cv[] {
-    return this.#embauchees;
-  }
   /**
    *
-   * Permet d'embaucher des cvs
+   * Retourne la liste des embauchees
    *
-   * @param cv - le Cv à embaucher
-   * @returns {boolean} return true si embauchée false sinon
+   * @returns CV[]
+   *
    */
-  embaucher(cv: Cv): boolean {
+  getEmbauchees(): Signal<Cv[]> {
+    return this.#embauchees.asReadonly();
+  }
+
+  /**
+   *
+   * Embauche une personne si elle ne l'est pas encore
+   * Sinon il retourne false
+   *
+   * @param cv : Cv
+   * @returns boolean
+   */
+  embauche(cv: Cv): boolean {
+    if (this.#embauchees().indexOf(cv) == -1) {
+      this.#embauchees.update((embauchees) => [...embauchees, cv]);
+      return true;
+    }
     return false;
   }
 }

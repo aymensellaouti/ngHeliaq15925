@@ -10,5 +10,5 @@ import { CvItemComponent } from "../cv-item/cv-item.component";
 })
 export class CvListComponent {
   cvs = input<Cv[]>([]) ;
-  forwardCv = output<Cv>();
+  // forwardCv = output<Cv>();
 }
