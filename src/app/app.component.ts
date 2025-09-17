@@ -12,9 +12,7 @@ import { TestObservableComponent } from "./rxjs/test-observable/test-observable.
   imports: [
     FormsModule,
     RouterOutlet,
-    NavbarComponent,
-    TestFormComponent,
-    TestObservableComponent
+    NavbarComponent
 ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

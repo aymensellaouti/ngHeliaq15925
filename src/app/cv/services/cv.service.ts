@@ -1,5 +1,8 @@
-import {  computed, Injectable, Signal, signal } from '@angular/core';
+import {  computed, inject, Injectable, Signal, signal } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { APP_API } from '../../config/app-api.config';
 
 
 @Injectable({
@@ -23,20 +26,29 @@ export class CvService {
   #selectedCv = signal<Cv | null>(null);
   //selectedCv = computed(() => this.#selectedCv());
   selectedCv = this.#selectedCv.asReadonly();
+  http = inject(HttpClient);
+
   /**
    * Retourne la liste des cvs
    * @returns Cv[]
    */
-  getCvs(): Signal<Cv[]> {
+  getFakeCvs(): Signal<Cv[]> {
     return this.cvs.asReadonly();
   }
 
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(APP_API.cv);
+  }
+
+  getCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(APP_API.cv + id);
+  }
   /**
    * Séelectionne un cv par son id
    * @param id
    * @returns
    */
-  findCvById(id: number): Cv | null {
+  findFakeCvById(id: number): Cv | null {
     return this.cvs().find((cv) => cv.id == id) ?? null;
   }
 
