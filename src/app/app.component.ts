@@ -4,13 +4,15 @@ import { FirstService } from './services/first.service';
 import { ToastrService } from 'ngx-toastr';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { TestFormComponent } from "./forms/test-form/test-form.component";
 
 @Component({
   selector: 'app-root',
   imports: [
     FormsModule,
     RouterOutlet,
-    NavbarComponent
+    NavbarComponent,
+    TestFormComponent
 ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

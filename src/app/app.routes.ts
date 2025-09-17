@@ -7,10 +7,12 @@ import { ColorComponent } from './components/color/color.component';
 import { SecondComponent } from './components/second/second.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
+import { LoginComponent } from './auth/login/login.component';
 
 export const routes: Routes = [
   // cv
   {path: '', component: FirstComponent},
+  {path: 'login', component: LoginComponent},
   {
     path: 'cv',
     children: [
