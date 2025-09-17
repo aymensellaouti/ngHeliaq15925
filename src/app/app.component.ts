@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { TestFormComponent } from "./forms/test-form/test-form.component";
+import { TestObservableComponent } from "./rxjs/test-observable/test-observable.component";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { TestFormComponent } from "./forms/test-form/test-form.component";
     FormsModule,
     RouterOutlet,
     NavbarComponent,
-    TestFormComponent
+    TestFormComponent,
+    TestObservableComponent
 ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],

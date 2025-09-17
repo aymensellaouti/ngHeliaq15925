@@ -5,10 +5,11 @@ import { Cv } from '../model/cv.model';
 import { CvService } from '../services/cv.service';
 import { EmbaucheComponent } from "../embauche/embauche.component";
 import { Router } from '@angular/router';
+import { TestObservableComponent } from "../../rxjs/test-observable/test-observable.component";
 
 @Component({
   selector: 'app-cv',
-  imports: [CvListComponent, CvCardComponent, EmbaucheComponent],
+  imports: [CvListComponent, CvCardComponent, EmbaucheComponent, TestObservableComponent],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
 })
