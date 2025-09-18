@@ -6,6 +6,7 @@ import { APP_ROUTES } from '../../config/app-routes.config';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { APP_CONST } from '../../config/const.config';
+import { uniueCinValidator } from '../../async validators/unique-cin.validator';
 
 @Component({
   selector: 'app-add-cv',
@@ -41,6 +42,7 @@ export class AddCvComponent implements OnDestroy {
         '',
         {
           validators: [Validators.required, Validators.pattern('[0-9]{8}')],
+          asyncValidators: [uniueCinValidator(this.cvService)],
         },
       ],
       age: [
@@ -75,7 +77,7 @@ export class AddCvComponent implements OnDestroy {
       localStorage.setItem(
         APP_CONST.addCvForm,
         JSON.stringify(this.form.value)
-      )
+      );
     }
   }
 

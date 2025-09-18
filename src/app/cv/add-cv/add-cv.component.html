@@ -10,7 +10,11 @@
   formControlName="age" /> Cin:
   <input type="text" class="form-control"
   formControlName="cin" />
-
+  @if (cin.errors && cin.errors['uniqueCin']) {
+    <div class="alert alert-danger">
+      {{cin.errors['uniqueCin']}}
+    </div>
+  }
   Job: <input type="text" class="form-control"
   formControlName="job" /> Path:
   <input type="text" class="form-control"
