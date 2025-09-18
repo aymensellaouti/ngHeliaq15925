@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection, LOCALE_ID } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import localeFr from '@angular/common/locales/fr';
 registerLocaleData(localeFr);
 import { routes } from './app.routes';
@@ -18,6 +18,7 @@ import { LoggerToken } from './injection tokens/logger.injectionToken';
 import { LoggerService } from './services/logger.service';
 import { Logger2Service } from './services/logger2.service';
 import { Logger3Service } from './services/logger3.service';
+import { CustomPreloadingStrategy } from './preloadinf strategy/custom.preloading-strategy';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -36,19 +37,20 @@ export const appConfig: ApplicationConfig = {
     {
       provide: LoggerToken,
       useClass: Logger2Service,
-      multi:true
+      multi: true,
     },
     {
       provide: LoggerToken,
       useClass: LoggerService,
-      multi: true
-    },{
+      multi: true,
+    },
+    {
       provide: LoggerToken,
       useClass: Logger3Service,
-      multi: true
+      multi: true,
     },
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
+    provideRouter(routes, withPreloading(CustomPreloadingStrategy)),
     provideAnimations(), // required animations providers
     provideToastr(), // Toastr providers
     provideHttpClient(withInterceptors([authInterceptor])),

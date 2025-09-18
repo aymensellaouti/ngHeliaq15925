@@ -10,7 +10,7 @@ import { FormsModule } from "@angular/forms";
   imports: [FormsModule],
   providers: [TodoService],
 })
-export class TodoComponent {
+export default class TodoComponent {
   protected todoService = inject(TodoService);
 
   nbreDeTodos = computed(() => this.todos().length);
