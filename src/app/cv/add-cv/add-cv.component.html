@@ -23,4 +23,10 @@
   <button [disabled]="form.invalid"  class="btn btn-primary" (click)="addCv()">
     add cv
   </button>
+
+    @if (form.errors && form.errors['ageCin']) {
+    <div class="alert alert-danger">
+      {{form.errors['ageCin']}}
+    </div>
+    }
 </form>

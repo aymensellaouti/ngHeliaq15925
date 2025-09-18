@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { APP_CONST } from '../../config/const.config';
 import { uniueCinValidator } from '../../async validators/unique-cin.validator';
+import { ageCinValidator } from '../../validators/age-cin.validator';
 
 @Component({
   selector: 'app-add-cv',
@@ -54,7 +55,7 @@ export class AddCvComponent implements OnDestroy {
       ],
     },
     {
-      validators: [],
+      validators: [ageCinValidator],
       asyncValidators: [],
     }
   );
