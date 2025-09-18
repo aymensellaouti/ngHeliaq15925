@@ -3,6 +3,7 @@ import { Todo } from "../model/todo";
 import { HttpClient } from "@angular/common/http";
 import { APP_API } from "../../config/app-api.config";
 import { Observable } from "rxjs";
+import { UUID_TOKEN } from "../../injection tokens/uuid.injectiont-token";
 
 export interface TodoApi {
   userId: number
@@ -17,6 +18,7 @@ export interface TodoApi {
 })
 export class TodoService {
   private todos = signal<Todo[]>([]);
+  private uuid = inject(UUID_TOKEN);
 
   http = inject(HttpClient);
 
@@ -37,6 +39,7 @@ export class TodoService {
    */
   addTodo(todo: Todo): void {
     //this.todos().push(todo);
+    todo.id = this.uuid();
     this.todos.update((todos) => [...todos, todo]);
   }
 

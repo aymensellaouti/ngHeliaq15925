@@ -17,3 +17,10 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   }
   return next(req);
 };
+
+
+// export const authInterceptorProvider = {
+//   provide: HTTP_INTERCEPTORS,
+//   useClass: authInterceptor,
+//   multi: true
+// }

@@ -7,6 +7,7 @@ import { EmbaucheComponent } from "../embauche/embauche.component";
 import { Router } from '@angular/router';
 import { TestObservableComponent } from "../../rxjs/test-observable/test-observable.component";
 import { ToastrService } from 'ngx-toastr';
+import { LoggerToken } from '../../injection tokens/logger.injectionToken';
 
 @Component({
   selector: 'app-cv',
@@ -17,6 +18,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CvComponent {
   cvService = inject(CvService);
+  loggers = inject(LoggerToken);
   cvs = signal<Cv[]>([]);
   selectedCv = this.cvService.selectedCv;
   router = inject(Router);
@@ -25,6 +27,7 @@ export class CvComponent {
     this.router.navigate(['todo'])
   }
   constructor() {
+    this.loggers.forEach(logger => logger.log('cc'));
     this.cvService.getCvs().subscribe({
       next: (cvs) => {
         this.cvs.set(cvs);
