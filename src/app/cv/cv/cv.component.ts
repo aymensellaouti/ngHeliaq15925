@@ -8,13 +8,26 @@ import { Router } from '@angular/router';
 import { TestObservableComponent } from "../../rxjs/test-observable/test-observable.component";
 import { ToastrService } from 'ngx-toastr';
 import { LoggerToken } from '../../injection tokens/logger.injectionToken';
+import { Logger2Service } from '../../services/logger2.service';
+import { Logger3Service } from '../../services/logger3.service';
 
 @Component({
   selector: 'app-cv',
   imports: [CvListComponent, CvCardComponent, EmbaucheComponent],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
-  providers: []
+  providers: [
+    {
+          provide: LoggerToken,
+          useClass: Logger2Service,
+          multi:true
+        },
+        {
+          provide: LoggerToken,
+          useClass: Logger3Service,
+          multi: true
+        },
+  ]
 })
 export class CvComponent {
   cvService = inject(CvService);
