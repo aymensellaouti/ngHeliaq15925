@@ -3,5 +3,6 @@ export const APP_CONST = {
   tokenKey: 'token',
   accessToken: 'access_token',
   authentificationHeader: 'Authorization',
-  env: 'prod'
+  env: 'prod',
+  addCvForm: 'addCvForm',
 };
