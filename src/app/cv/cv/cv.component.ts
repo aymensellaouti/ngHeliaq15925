@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   imports: [CvListComponent, CvCardComponent, EmbaucheComponent],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
+  providers: []
 })
 export class CvComponent {
   cvService = inject(CvService);

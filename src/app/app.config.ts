@@ -11,12 +11,19 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './auth/interceptors/auth.interceptor';
 import { AuthService } from './auth/services/auth.service';
+import { CvService } from './cv/services/cv.service';
+import { APP_CONST } from './config/const.config';
+import { FakeCvService } from './cv/services/fake-cv.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     {
       provide: LOCALE_ID,
       useValue: 'fr-FR',
+    },
+    {
+      provide: CvService,
+      useClass: APP_CONST.env == 'prod' ? CvService : FakeCvService
     },
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
