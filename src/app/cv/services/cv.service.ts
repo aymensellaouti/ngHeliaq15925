@@ -41,6 +41,9 @@ export class CvService {
   getCvs(): Observable<Cv[]> {
     return this.http.get<Cv[]>(APP_API.cv);
   }
+  addCv(cv: Partial<Cv>): Observable<Cv> {
+    return this.http.post<Cv>(APP_API.cv, cv);
+  }
 
   getCvById(id: number): Observable<Cv> {
     return this.http.get<Cv>(APP_API.cv + id);
