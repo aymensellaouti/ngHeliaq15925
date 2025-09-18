@@ -6,13 +6,15 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { TestFormComponent } from "./forms/test-form/test-form.component";
 import { TestObservableComponent } from "./rxjs/test-observable/test-observable.component";
+import { DeferComponent } from "./defer/defer/defer.component";
 
 @Component({
   selector: 'app-root',
   imports: [
     FormsModule,
     RouterOutlet,
-    NavbarComponent
+    NavbarComponent,
+    DeferComponent
 ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
