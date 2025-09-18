@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CvService } from '../services/cv.service';
 import { Cv } from '../model/cv.model';
@@ -12,12 +12,19 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './add-cv.component.html',
   styleUrl: './add-cv.component.css',
 })
-export class AddCvComponent {
+export class AddCvComponent implements OnInit {
   formBuilder = inject(FormBuilder);
   cvService = inject(CvService);
   router = inject(Router);
   toastr = inject(ToastrService);
-
+  ngOnInit(): void {
+    this.age.valueChanges.subscribe({
+      next: age => {
+        if(age >= 18) this.path?.enable()
+        else this.path?.disable()
+      }
+    })
+  }
   form = this.formBuilder.group(
     {
       name: ['', Validators.required],
@@ -34,6 +41,7 @@ export class AddCvComponent {
         0,
         {
           validators: [Validators.required],
+          updateOn: 'blur'
         },
       ],
     },
